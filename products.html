@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - FARM-C</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+    <script src="js/main.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (same as index.html) -->
+    <nav class="bg-green-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-2xl"></i>
+                <span class="text-xl font-bold">FARM-C</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-green-200">Home</a>
+                <a href="products.html" class="hover:text-green-200">Products</a>
+                <a href="about.html" class="hover:text-green-200">About</a>
+                <a href="contact.html" class="hover:text-green-200">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-green-200"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-green-200"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="hover:text-green-200 relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-yellow-500 text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="py-12 container mx-auto px-4">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Filters Sidebar -->
+            <div class="w-full md:w-1/4 bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4">Filters</h3>
+                
+                <!-- Category Filter -->
+                <div class="mb-6">
+                    <h4 class="font-medium mb-2">Categories</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 category-filter" value="seeds" checked>
+                            Seeds
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 category-filter" value="tools" checked>
+                            Tools
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 category-filter" value="fertilizers" checked>
+                            Fertilizers
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 category-filter" value="pesticides" checked>
+                            Pesticides
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Price Range Filter -->
+                <div class="mb-6">
+                    <h4 class="font-medium mb-2">Price Range</h4>
+                    <div class="flex items-center justify-between mb-2">
+                        <span>$0</span>
+                        <span>$1000</span>
+                    </div>
+                    <input type="range" min="0" max="1000" value="1000" class="w-full price-range">
+                    <div class="text-center mt-2">
+                        Max: $<span id="price-value">1000</span>
+                    </div>
+                </div>
+
+                <!-- Size Filter -->
+                <div class="mb-6">
+                    <h4 class="font-medium mb-2">Size</h4>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 size-filter" value="small">
+                            Small
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 size-filter" value="medium">
+                            Medium
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 size-filter" value="large">
+                            Large
+                        </label>
+                    </div>
+                </div>
+
+                <button id="apply-filters" class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-300">
+                    Apply Filters
+                </button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="w-full">
+                <h2 id="category-title" class="text-2xl font-bold mb-6">Our Products</h2>
+                <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">FARM-C</h3>
+                    <p>Your one-stop shop for all agriculture needs.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+                        <li><a href="products.html" class="hover:text-green-400">Products</a></li>
+                        <li><a href="#" class="hover:text-green-400">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="products.html?category=seeds" class="hover:text-green-400">Seeds</a></li>
+                        <li><a href="products.html?category=tools" class="hover:text-green-400">Tools</a></li>
+                        <li><a href="products.html?category=fertilizers" class="hover:text-green-400">Fertilizers</a></li>
+                        <li><a href="products.html?category=pesticides" class="hover:text-green-400">Pesticides</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <p><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope mr-2"></i> info@farm-c.com</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                <p>&copy; 2023 FARM-C. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load products based on category from URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            const productsContainer = document.getElementById('products-container');
+            const categoryTitle = document.getElementById('category-title');
+
+            if (category && products[category]) {
+                categoryTitle.textContent = `${category.charAt(0).toUpperCase() + category.slice(1)} Products`;
+                renderProducts(products[category]);
+            } else {
+                // Show all products if no category specified
+                categoryTitle.textContent = 'All Products';
+                const allProducts = Object.values(products).flat();
+                renderProducts(allProducts);
+            }
+        });
+
+        function renderProducts(products) {
+            const productsContainer = document.getElementById('products-container');
+            
+            productsContainer.innerHTML = products.map(product => `
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-lg mb-1">${product.name}</h3>
+                        <div class="flex items-center mb-2">
+                            ${renderRating(product.rating)}
+                            <span class="text-gray-600 text-sm ml-2">${product.rating}</span>
+                        </div>
+                        <p class="text-green-600 font-bold mb-3">$${product.price.toFixed(2)}</p>
+                        <a href="product.html?id=${product.id}" class="block text-center bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-300">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
