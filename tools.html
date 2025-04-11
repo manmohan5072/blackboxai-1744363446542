@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - AgriMarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-2xl"></i>
+                <span class="text-xl font-bold">FARM-C</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-green-200">Home</a>
+                <div class="products-menu relative">
+                    <a href="#" class="hover:text-green-200 flex items-center">
+                        Products
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="nav-dropdown absolute left-0 mt-2 w-56 bg-white rounded-md shadow-lg z-10 overflow-hidden">
+                        <div class="p-3 bg-green-600 text-white font-bold">
+                            <i class="fas fa-boxes mr-2"></i> Products
+                        </div>
+                        <div class="divide-y divide-gray-200">
+                            <a href="seeds.html" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center">
+                                <i class="fas fa-seedling mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Seeds</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                            <a href="tools.html" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center bg-green-50">
+                                <i class="fas fa-tools mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Tools</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                            <a href="pesticides.html" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center">
+                                <i class="fas fa-spray-can mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Pesticides</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                            <a href="fertilizers.html" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center">
+                                <i class="fas fa-flask mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Fertilizers</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                        </div>
+                        <div class="border-t border-gray-200 p-3 bg-gray-50 text-center">
+                            <a href="products.html" class="text-green-600 font-medium hover:text-green-800">
+                                View All Products <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="hover:text-green-200">About</a>
+                <a href="contact.html" class="hover:text-green-200">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-green-200"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-green-200"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="hover:text-green-200 relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-yellow-500 text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-8">All Tools</h1>
+            <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tools products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">AgriMarket</h3>
+                    <p>Your one-stop shop for all agriculture needs.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+                        <li><a href="seeds.html" class="hover:text-green-400">Seeds</a></li>
+                        <li><a href="tools.html" class="hover:text-green-400">Tools</a></li>
+                        <li><a href="pesticides.html" class="hover:text-green-400">Pesticides</a></li>
+                        <li><a href="fertilizers.html" class="hover:text-green-400">Fertilizers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <p><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope mr-2"></i> info@agrimarket.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                <p>&copy; 2023 AgriMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const productsContainer = document.getElementById('products-container');
+            const toolsProducts = products.tools;
+            
+            toolsProducts.forEach(product => {
+                // Create and append product cards
+            });
+        });
+    </script>
+</body>
+</html>
