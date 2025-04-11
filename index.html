@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARM-C - Agriculture Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Hide dropdown by default */
+        .nav-dropdown {
+            display: none;
+        }
+        
+        /* Show dropdown when parent is hovered or has active class */
+        .products-menu:hover .nav-dropdown,
+        .products-menu.active .nav-dropdown {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-2xl"></i>
+                <span class="text-xl font-bold">FARM-C</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-green-200">Home</a>
+                <div class="products-menu relative">
+                    <a href="#" class="hover:text-green-200 flex items-center">
+                        Products
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="nav-dropdown absolute mt-2 w-56 bg-white rounded-md shadow-lg z-10 overflow-hidden">
+                        <div class="p-3 bg-green-600 text-white font-bold">
+                            <i class="fas fa-boxes mr-2"></i> Products
+                        </div>
+                        <div class="divide-y divide-gray-200">
+                            <a href="products.html?category=seeds" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center">
+                                <i class="fas fa-seedling mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Seeds</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                            <a href="products.html?category=tools" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center">
+                                <i class="fas fa-tools mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Tools</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                            <a href="products.html?category=pesticides" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center">
+                                <i class="fas fa-spray-can mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Pesticides</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                            <a href="products.html?category=fertilizers" class="dropdown-item block px-4 py-3 text-gray-800 hover:bg-green-50 flex items-center">
+                                <i class="fas fa-flask mr-3 text-green-600 w-5 text-center"></i>
+                                <span>Fertilizers</span>
+                                <i class="fas fa-chevron-right ml-auto text-gray-400 text-xs"></i>
+                            </a>
+                        </div>
+                        <div class="border-t border-gray-200 p-3 bg-gray-50 text-center">
+                            <a href="products.html" class="text-green-600 font-medium hover:text-green-800">
+                                View All Products <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="hover:text-green-200">About</a>
+                <a href="contact.html" class="hover:text-green-200">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-green-200"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-green-200"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="hover:text-green-200 relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-yellow-500 text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu - hidden by default -->
+        <div id="mobile-menu" class="hidden md:hidden bg-green-800 px-4 py-2">
+            <a href="index.html" class="block py-2 hover:text-green-200">Home</a>
+            <div class="mobile-products-menu">
+                <a href="#" class="block py-2 hover:text-green-200 flex items-center justify-between" id="mobile-products-toggle">
+                    Products
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </a>
+                <div id="mobile-products-dropdown" class="hidden pl-4 space-y-2 mt-1">
+                    <a href="seeds.html" class="block py-2 hover:text-green-200">Seeds</a>
+                    <a href="tools.html" class="block py-2 hover:text-green-200">Tools</a>
+                    <a href="pesticides.html" class="block py-2 hover:text-green-200">Pesticides</a>
+                    <a href="fertilizers.html" class="block py-2 hover:text-green-200">Fertilizers</a>
+                </div>
+            </div>
+            <a href="#" class="block py-2 hover:text-green-200">About</a>
+            <a href="#" class="block py-2 hover:text-green-200">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-green-600 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Quality Agriculture Products</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Everything you need for successful farming - seeds, tools, fertilizers and more</p>
+            <a href="products.html" class="bg-white text-green-700 font-bold py-3 px-6 rounded-full hover:bg-green-100 transition duration-300 inline-block">
+                Shop Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="py-12 container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-10">Our Categories</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="products.html?category=seeds" class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 group">
+                <i class="fas fa-seedling text-4xl text-green-600 mb-4 group-hover:text-green-800"></i>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-green-800">Seeds</h3>
+                <p class="text-gray-600 group-hover:text-gray-800">High quality seeds for all crops</p>
+                <div class="mt-4 text-green-600 font-medium group-hover:text-green-800">Shop Now →</div>
+            </a>
+            <a href="products.html?category=pesticides" class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 group">
+                <i class="fas fa-spray-can text-4xl text-green-600 mb-4 group-hover:text-green-800"></i>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-green-800">Pesticides</h3>
+                <p class="text-gray-600 group-hover:text-gray-800">Protect your crops effectively</p>
+                <div class="mt-4 text-green-600 font-medium group-hover:text-green-800">Shop Now →</div>
+            </a>
+            <a href="products.html?category=tools" class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 group">
+                <i class="fas fa-tools text-4xl text-green-600 mb-4 group-hover:text-green-800"></i>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-green-800">Tools</h3>
+                <p class="text-gray-600 group-hover:text-gray-800">Essential farming equipment</p>
+                <div class="mt-4 text-green-600 font-medium group-hover:text-green-800">Shop Now →</div>
+            </a>
+            <a href="products.html?category=fertilizers" class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition duration-300 group">
+                <i class="fas fa-flask text-4xl text-green-600 mb-4 group-hover:text-green-800"></i>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-green-800">Fertilizers</h3>
+                <p class="text-gray-600 group-hover:text-gray-800">Boost your crop growth</p>
+                <div class="mt-4 text-green-600 font-medium group-hover:text-green-800">Shop Now →</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Best Selling Products -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl font-bold">Best Selling Products</h2>
+                <a href="products.html" class="text-green-600 hover:text-green-800 font-medium">
+                    View All Products →
+                </a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1594282486555-88d9c0cc3849" alt="Premium Seeds" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg mb-1">Premium Wheat Seeds</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">BESTSELLER</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(142 reviews)</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <span class="text-green-600 font-bold text-xl">$12.99</span>
+                            <span class="text-gray-400 text-sm line-through ml-2">$15.99</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300" onclick="addToCart(1)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1582284540020-8acbe03f4924" alt="Garden Tools" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg mb-1">Professional Garden Hoe</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">BESTSELLER</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                ★★★★☆
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(98 reviews)</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <span class="text-green-600 font-bold text-xl">$24.99</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300" onclick="addToCart(3)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d" alt="Organic Fertilizer" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg mb-1">Organic Fertilizer</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">BESTSELLER</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                ★★★★★
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(201 reviews)</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <span class="text-green-600 font-bold text-xl">$19.99</span>
+                            <span class="text-gray-400 text-sm line-through ml-2">$24.99</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300" onclick="addToCart(4)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae" alt="Eco Pesticide" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-bold text-lg mb-1">Eco-Friendly Pesticide</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">BESTSELLER</span>
+                        </div>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                ★★★★☆
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(87 reviews)</span>
+                        </div>
+                        <div class="flex items-center mb-3">
+                            <span class="text-green-600 font-bold text-xl">$15.99</span>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition duration-300" onclick="addToCart(5)">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">AgriMarket</h3>
+                    <p>Your one-stop shop for all agriculture needs.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-400">Home</a></li>
+                        <li><a href="#" class="hover:text-green-400">Products</a></li>
+                        <li><a href="#" class="hover:text-green-400">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-green-400">Seeds</a></li>
+                        <li><a href="#" class="hover:text-green-400">Tools</a></li>
+                        <li><a href="#" class="hover:text-green-400">Fertilizers</a></li>
+                        <li><a href="#" class="hover:text-green-400">Pesticides</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <p><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope mr-2"></i> info@agrimarket.com</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                <p>&copy; 2023 AgriMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Toggle mobile products dropdown
+        document.getElementById('mobile-products-toggle').addEventListener('click', function(e) {
+            e.preventDefault();
+            const mobileProductsDropdown = document.getElementById('mobile-products-dropdown');
+            mobileProductsDropdown.classList.toggle('hidden');
+        });
+        
+        // Cart functionality is handled in main.js
+    </script>
+</body>
+</html>
