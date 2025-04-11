@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - AgriMarket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+    <script src="js/main.js"></script>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-green-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-2xl"></i>
+                <span class="text-xl font-bold">AgriMarket</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-green-200">Home</a>
+                <div class="relative group">
+                    <a href="products.html" class="hover:text-green-200 flex items-center">
+                        Products
+                        <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </a>
+                    <div class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10 hidden group-hover:block">
+                        <a href="products.html?category=seeds" class="block px-4 py-2 text-gray-800 hover:bg-green-100">Seeds</a>
+                        <a href="products.html?category=tools" class="block px-4 py-2 text-gray-800 hover:bg-green-100">Tools</a>
+                        <a href="products.html?category=pesticides" class="block px-4 py-2 text-gray-800 hover:bg-green-100">Pesticides</a>
+                        <a href="products.html?category=fertilizers" class="block px-4 py-2 text-gray-800 hover:bg-green-100">Fertilizers</a>
+                    </div>
+                </div>
+                <a href="about.html" class="hover:text-green-200">About</a>
+                <a href="contact.html" class="hover:text-green-200">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-green-200"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-green-200"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="hover:text-green-200 relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-yellow-500 text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+                <button class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Details Section -->
+    <section class="py-12 container mx-auto px-4">
+        <div id="product-details" class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Product details will be loaded here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">AgriMarket</h3>
+                    <p>Your one-stop shop for all agriculture needs.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+                        <li><a href="products.html" class="hover:text-green-400">Products</a></li>
+                        <li><a href="#" class="hover:text-green-400">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2">
+                        <li><a href="products.html?category=seeds" class="hover:text-green-400">Seeds</a></li>
+                        <li><a href="products.html?category=tools" class="hover:text-green-400">Tools</a></li>
+                        <li><a href="products.html?category=fertilizers" class="hover:text-green-400">Fertilizers</a></li>
+                        <li><a href="products.html?category=pesticides" class="hover:text-green-400">Pesticides</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <p><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope mr-2"></i> info@agrimarket.com</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-green-400"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                <p>&copy; 2023 AgriMarket. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Load product details based on ID from URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+            const productDetails = document.getElementById('product-details');
+
+            if (productId) {
+                const product = findProductById(productId);
+                if (product) {
+                    renderProductDetails(product);
+                } else {
+                    productDetails.innerHTML = '<div class="p-8 text-center"><p class="text-red-500">Product not found</p></div>';
+                }
+            } else {
+                productDetails.innerHTML = '<div class="p-8 text-center"><p class="text-red-500">No product specified</p></div>';
+            }
+        });
+
+        function findProductById(id) {
+            for (const category in products) {
+                const found = products[category].find(p => p.id === id);
+                if (found) return found;
+            }
+            return null;
+        }
+
+        function renderProductDetails(product) {
+            const productDetails = document.getElementById('product-details');
+            
+            productDetails.innerHTML = `
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-6">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-auto rounded-lg">
+                    </div>
+                    <div class="md:w-1/2 p-6">
+                        <h1 class="text-3xl font-bold mb-2">${product.name}</h1>
+                        <div class="flex items-center mb-4">
+                            ${renderRating(product.rating)}
+                            <span class="text-gray-600 ml-2">${product.rating} (24 reviews)</span>
+                        </div>
+                        <p class="text-green-600 text-2xl font-bold mb-4">$${product.price.toFixed(2)}</p>
+                        <p class="text-gray-700 mb-6">${product.description}</p>
+                        
+                        <div class="flex items-center mb-6">
+                            <span class="mr-4">Quantity:</span>
+                            <div class="flex items-center border rounded">
+                                <button class="px-3 py-1 border-r" onclick="updateQuantity(-1)">-</button>
+                                <span id="quantity" class="px-4">1</span>
+                                <button class="px-3 py-1 border-l" onclick="updateQuantity(1)">+</button>
+                            </div>
+                        </div>
+                        
+                        <button class="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition duration-300 mb-4" onclick="addToCart(${product.id})">
+                            Add to Cart
+                        </button>
+                        
+                        <div class="border-t pt-4">
+                            <h3 class="font-bold mb-2">Product Details</h3>
+                            <ul class="space-y-2">
+                                <li><span class="font-medium">Category:</span> ${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</li>
+                                <li><span class="font-medium">Availability:</span> In Stock</li>
+                                <li><span class="font-medium">Shipping:</span> Free shipping on orders over $50</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateQuantity(change) {
+            const quantityElement = document.getElementById('quantity');
+            let quantity = parseInt(quantityElement.textContent);
+            quantity += change;
+            if (quantity < 1) quantity = 1;
+            quantityElement.textContent = quantity;
+        }
+    </script>
+</body>
+</html>
