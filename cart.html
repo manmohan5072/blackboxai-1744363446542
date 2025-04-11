@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - FARM-C</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation (same as other pages) -->
+    <nav class="bg-green-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <i class="fas fa-leaf text-2xl"></i>
+                <span class="text-xl font-bold">FARM-C</span>
+            </a>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-green-200">Home</a>
+                <a href="products.html" class="hover:text-green-200">Products</a>
+                <a href="about.html" class="hover:text-green-200">About</a>
+                <a href="contact.html" class="hover:text-green-200">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hover:text-green-200"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-green-200"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="hover:text-green-200 relative">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-yellow-500 text-xs w-5 h-5 flex items-center justify-center rounded-full">0</span>
+                </a>
+                <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Section -->
+    <section class="py-12 container mx-auto px-4">
+        <h1 class="text-3xl font-bold mb-8">Your Shopping Cart</h1>
+        
+        <!-- Cart Items Container -->
+        <div id="cart-items-container" class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <!-- Empty Cart State -->
+            <div id="empty-cart" class="text-center py-12">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png" alt="Empty Cart" class="w-64 mx-auto mb-6">
+                <h3 class="text-xl font-bold mb-2">Your cart is empty</h3>
+                <p class="text-gray-600 mb-6">Looks like you haven't added anything to your cart yet</p>
+                <a href="products.html" class="inline-block bg-green-600 text-white py-2 px-6 rounded-lg hover:bg-green-700 transition duration-300">
+                    Browse Products
+                </a>
+            </div>
+            
+            <!-- Cart with Items (hidden by default) -->
+            <div id="cart-with-items" class="hidden">
+                <div class="grid grid-cols-12 gap-4 font-medium border-b pb-4 mb-4">
+                    <div class="col-span-6">Product</div>
+                    <div class="col-span-2 text-center">Price</div>
+                    <div class="col-span-2 text-center">Quantity</div>
+                    <div class="col-span-2 text-right">Total</div>
+                </div>
+                
+                <!-- Cart items will be dynamically inserted here -->
+                <div id="cart-items-list"></div>
+                
+                <div class="border-t pt-6 mt-6">
+                    <div class="flex justify-between items-center">
+                        <div class="text-lg font-bold">Subtotal</div>
+                        <div id="cart-subtotal" class="text-xl font-bold">$0.00</div>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-1">Shipping and taxes calculated at checkout</p>
+                    <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition duration-300 mt-6">
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages) -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">FARM-C</h3>
+                    <p>Your one-stop shop for all agriculture needs.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-green-400">Home</a></li>
+                        <li><a href="products.html" class="hover:text-green-400">Products</a></li>
+                        <li><a href="#" class="hover:text-green-400">About Us</a></li>
+                        <li><a href="#" class="hover:text-green-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Contact Us</h4>
+                    <p><i class="fas fa-phone mr-2"></i> +1 234 567 890</p>
+                    <p><i class="fas fa-envelope mr-2"></i> info@farm-c.com</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center">
+                <p>&copy; 2023 FARM-C. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
